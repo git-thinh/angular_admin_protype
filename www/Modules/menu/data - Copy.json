@@ -1,0 +1,44 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Components",
+    "menus": [
+      {
+        "parent_id": 1,
+        "name": "Control",
+        "code": "control"
+      },
+      {
+        "parent_id": 1,
+        "name": "Panel",
+        "code": "panel"
+      },
+      {
+        "parent_id": 1,
+        "name": "Table",
+        "code": "table"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Demo 2",
+    "menus": [
+      {
+        "parent_id": 2,
+        "name": "Menu 2.1",
+        "code": "md-menu2.1"
+      },
+      {
+        "parent_id": 2,
+        "name": "Menu 2.2",
+        "code": "md-menu2.2"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Blank",
+    "code": "blank"
+  }
+]

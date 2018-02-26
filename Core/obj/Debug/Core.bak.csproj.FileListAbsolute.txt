@@ -1,0 +1,5 @@
+D:\_EL\AJS\Core\bin\Debug\Core.dll
+D:\_EL\AJS\Core\bin\Debug\Core.pdb
+D:\_EL\AJS\Core\bin\Debug\Newtonsoft.Json.dll
+D:\_EL\AJS\Core\obj\Debug\Core.dll
+D:\_EL\AJS\Core\obj\Debug\Core.pdb

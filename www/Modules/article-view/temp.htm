@@ -1,0 +1,7 @@
+﻿<div class="ArticleView">
+    <header>
+        <button ng-click="close()" class="btn btn-sm btn-danger">Close</button>
+        <h1>{{article.Title}}</h1>
+    </header>
+    <div class="content" ng-bind-html-unsafe="article.Content | renderArticleContent:this"></div>
+</div>

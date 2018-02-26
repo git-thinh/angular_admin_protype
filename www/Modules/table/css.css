@@ -1,0 +1,29 @@
+﻿.ArticleEdit input {
+    width: 100%;
+    height: 69px;
+    text-align: center;
+    border: none;
+}
+
+.ArticleEdit textarea {
+    width: 100%;
+    position: absolute;
+    top: 69px;
+    bottom: 44px;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    z-index: 0;
+}
+
+.ArticleEdit footer {
+    position: absolute;
+    bottom: 0;
+    right: 7px;
+    left: 0;
+    height: 38px;
+    text-align: right;
+    z-index: 0;
+    padding-bottom: 0px;
+    display: inline-block;
+}

@@ -1,0 +1,20 @@
+﻿
+.hideMenu {
+    display: none !important;
+}
+
+#menu ul {
+}
+
+    #menu ul li {
+        padding: 10px 5px;
+        border-bottom: 1px solid #fff;
+    }
+
+        #menu ul li a {
+            color: #eee;
+        }
+
+        #menu ul li.active {
+            background-color: rgba(255,255,255,0.2);
+        }

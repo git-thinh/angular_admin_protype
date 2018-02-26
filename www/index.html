@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html ng-app="app">
+<head>
+    <title>WebUI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="Asset/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Asset/css/main.css" rel="stylesheet" />
+
+    <script src="Modules/header/controller.js"></script>
+    <link href="Modules/header/css.css" rel="stylesheet" />
+    <script src="Modules/menu/controller.js"></script>
+    <link href="Modules/menu/css.css" rel="stylesheet" />
+</head>
+<body ng-resize ng-class="resizeClass()" data-menuchild="{{ menuChild }}">
+    <div id="header" ng-include="'/Modules/header/temp.htm'" ng-controller="headerCtrl">
+    </div>
+
+    <div id="main">
+        <div id="menu" ng-include="'/Modules/menu/temp.htm'" ng-controller="menuCtrl">
+        </div>
+        <div id="module">
+            <div ng-view></div>
+        </div>
+    </div>
+
+
+    <div id="popup" style="display:none;"> 
+    </div>
+
+    <script>
+        /** The initialization Promise for browser IE 9,10,11 */
+        var uag = navigator.userAgent; if (uag.indexOf("rv:11") != -1 || uag.indexOf("MSIE") != -1) { var js = document.createElement('script'); js.setAttribute("type", "text/javascript"); js.innerHTML = ' var com; !function (a) { !function (a) { function e(a) { c(a) } function f(a) { b.push(a), d(h, 0) } function g(a) { b.push(a) } function h() { var a; try { for (c = g; a = b.shift() ;) a.apply(void 0, []) } finally { c = f } } var b = [], c = f, d = "undefined" != typeof process && "function" == typeof process.nextTick ? process.nextTick : setTimeout; a.nextTick = e }(a.ciplogic || (a.ciplogic = {})) }(com || (com = {})); var com; !function (a) { !function (b) { function c(a, b) { for (var c = 0; c < a.length; c++) b(a[c], c) } var d; !function (a) { a[a.FULFILLED = 0] = "FULFILLED", a[a.REJECTED = 1] = "REJECTED", a[a.PENDING = 2] = "PENDING" }(d || (d = {})); var e = function () { function a() { this.callbacks = [null, null], this.promise = null } return a }(), f = function () { function b(a) { var c = this; if (!a) throw new Error("You need an executor(resolve, reject) to be passed to the constructor of a Promise"); if ("object" != typeof this) throw new TypeError("The this object for a Promise must be an object."); if (this instanceof Number || this instanceof String || this instanceof Date || this instanceof Boolean) throw new TypeError("The this object for a Promise must be an object."); if (void 0 !== this._state) throw new TypeError("Already constructed promise passed as this."); if ("function" != typeof a) throw new TypeError("Executor must be a callable object."); this._followUps = [], this._state = d.PENDING; try { a(function (a) { b.resolvePromise(c, a) }, function (a) { c._reject(a) }) } catch (a) { this._reject(a) } } return b.prototype.then = function (a, c) { var f = new e; return "function" == typeof a && (f.callbacks[d.FULFILLED] = a), "function" == typeof c && (f.callbacks[d.REJECTED] = c), f.promise = new b(function (a, b) { }), this._followUps.push(f), this._notifyCallbacks(), f.promise }, b.prototype.catch = function (a) { return this.then(void 0, a) }, b.prototype.always = function (a) { return this.then(function (b) { return a.apply(void 0), b }, function (b) { throw a.apply(void 0), b }) }, b.resolve = function (a) { if ("function" != typeof this) throw new TypeError("The this of Promise.resolve must be a constructor."); return a instanceof b ? a : new this(function (c, d) { b.resolvePromise({ _fulfill: c, _reject: d }, a) }) }, b.all = function (a) { if ("function" != typeof this) throw new TypeError("The this of Promise.all must be a constructor."); return a && void 0 !== a.length ? 1 == a.length ? b.resolve(a[0]).then(function (a) { return [a] }) : 0 == a.length ? b.resolve([]) : new this(function (d, e) { var f = a.length, g = new Array(a.length); c(a, function (a, c) { b.resolve(a).then(function (a) { g[c] = a, 0 == --f && d(g) }, e) }) }) : b.reject(new TypeError("Passed a non iterable to Promise.all(): " + typeof a)) }, b.reject = function (a) { if ("function" != typeof this) throw new TypeError("The this of Promise.reject must be a constructor."); return new this(function (b, c) { c(a) }) }, b.race = function (a) { if ("function" != typeof this) throw new TypeError("The this of Promise.race must be a constructor."); if (!a || void 0 === a.length) return b.reject(new TypeError("Passed a non iterable to Promise.race(): " + typeof a)); if (1 == a.length) return b.resolve(a[0]).then(function (a) { return [a] }); if (0 == a.length) return new this(function (a, b) { }); for (var c = 0; c < a.length; c++) if (a[c] instanceof b && a[c]._state != d.PENDING) return a[c]; return new this(function (c, d) { for (var f = 0; f < a.length; f++) b.resolvePromise({ _fulfill: c, _reject: d }, a[f]) }) }, b.resolvePromise = function (a, c) { if (a === c) throw new TypeError; if ("function" != typeof c && "object" != typeof c || !c) return void a._fulfill(c); if (c instanceof b) return void c.then(function (b) { a._fulfill(b) }, function (b) { a._reject(b) }); var d; try { d = c.then } catch (b) { return void a._reject(b) } if (d || "function" != typeof c || (d = c), "function" == typeof d) { var e = !0; try { d.call(c, function (c) { e && (e = !1, b.resolvePromise(a, c)) }, function (b) { e && (e = !1, a._reject(b)) }) } catch (b) { e && a._reject(b) } } else a._fulfill(c) }, b.prototype._transition = function (a, b) { this._state == d.PENDING && (this._state = a, this._value = b, this._notifyCallbacks()) }, b.prototype._fulfill = function (a) { return this._transition(d.FULFILLED, a), this }, b.prototype._reject = function (a) { return this._transition(d.REJECTED, a), this }, b.prototype._notifyCallbacks = function () { var c = this; if (this._state !== d.PENDING) { var e = this._followUps; this._followUps = [], a.ciplogic.nextTick(function () { for (var a = 0; a < e.length; a++) { var f; f = e[a].promise; try { if (null == e[a].callbacks[c._state]) f._transition(c._state, c._value); else { var g = e[a].callbacks[c._state].call(void 0, c._value); b.resolvePromise(f, g) } } catch (a) { f._transition(d.REJECTED, a) } } }) } }, b }(); b.CorePromise = f }(a.ciplogic || (a.ciplogic = {})) }(com || (com = {})), void 0 === window.Promise && (window.Promise = com.ciplogic.CorePromise);'; document.getElementsByTagName("head")[0].appendChild(js); }
+    </script>
+    <script src="Asset/js/jquery.js"></script>
+    <script src="Asset/js/bootstrap.min.js"></script>
+    <script src="Asset/js/angular.min.js"></script>
+    <script src="Asset/core/alert.js"></script>
+
+    <script src="Asset/core/app.js"></script>
+    <script src="Asset/core/directives.js"></script>
+    <script src="Asset/core/services.js"></script>
+    <script src="Asset/core/filters.js"></script>
+    <script src="Asset/core/controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+G:\AJS\Core\bin\Debug\Core.dll
+G:\AJS\Core\bin\Debug\Core.pdb
+G:\AJS\Core\obj\Debug\Core.dll
+G:\AJS\Core\obj\Debug\Core.pdb
+G:\AJS\Core\bin\Debug\Newtonsoft.Json.dll
+D:\_EL\AJS\Core\bin\Debug\Core.dll
+D:\_EL\AJS\Core\bin\Debug\Core.pdb
+D:\_EL\AJS\Core\bin\Debug\Newtonsoft.Json.dll
+D:\_EL\AJS\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+D:\_EL\AJS\Core\obj\Debug\Core.dll
+D:\_EL\AJS\Core\obj\Debug\Core.pdb

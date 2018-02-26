@@ -1,0 +1,5 @@
+﻿<ul>
+    <li ng-repeat="m in articles" ng-class="{active : isSelected(m.Key)}">
+        <a href="javascript:void(0);" ng-click="itemClick(m.Key)">{{ m.Title }}</a>
+    </li>
+</ul>
